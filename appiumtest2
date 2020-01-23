@@ -1,0 +1,64 @@
+
+public class A
+{
+
+ Appium AppiumDriver<MobileElement> d;
+
+@beforemethod
+public   void initi()
+{
+DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setCapability("deviceName", "My Phone");
+		caps.setCapability("udid", "ENUL6303030010"); // your mobile phone id
+ 		caps.setCapability("platformName", "Android");
+		caps.setCapability("platformVersion", "7.0");
+		caps.setCapability("appPackage", "amazonapp package name");
+		caps.setCapability("appActivity", "amazonapp activity name");
+		caps.setCapability("noReset", "true");
+
+                new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
+
+@test
+public void c(double startPercentage, double finalPercentage, double anchorPercentage, int duration){
+                //click on the hamburger menu
+                  d.findElementByClassname("@class=humbergermenu").click();
+                  
+                  Thread.sleep(1000);
+                
+                 //click on the setting tab
+                 d.findElementByxpath("xpath of setting").click();
+
+                 Thread.sleep(1000);
+
+                 // as we need  australia to click we need to scroll
+                  
+		
+		  org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+                  int anchor = (int) (size.width * anchorPercentage);
+		  int startPoint = (int) (size.height * startPercentage);
+		  int endPoint = (int) (size.height * finalPercentage);
+		  getTouchAction().press(PointOption.point(anchor, startPoint))
+		  .waitAction(WaitOptions.waitOptions(Duration.ofMillis(duration)))
+		  .moveTo(PointOption.point(anchor, endPoint)).release().perform();
+		
+
+
+                //click on the australia
+
+
+
+                 d.findElementsByClassName("//a[@classname='australia']).click();
+
+}
+                  
+@aftertest
+public void trdw()
+{
+d.close();
+
+
+}
+
+
+
+}
