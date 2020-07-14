@@ -4,7 +4,7 @@ stages{
 stage("Git checkout")
 {
 steps{
-git cridentialsId:'github' url:https://github.com/ommprasad/demoAppiumtest/edit/master/jenkins%20cicd
+git credentialsId: '4c53ce92-c08e-40d0-b191-f59137153a87', url: 'https://github.com/ommprasad/demoAppiumtest'
 }
 }
 }
