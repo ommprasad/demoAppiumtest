@@ -1,0 +1,11 @@
+pipeline {
+agnet any
+stages{
+stage("Git checkout")
+{
+steps{
+git cridentialsId:'github' url:https://github.com/ommprasad/demoAppiumtest/edit/master/jenkins%20cicd
+}
+}
+}
+}
