@@ -1,11 +1,33 @@
 pipeline {
 agent any
 stages{
-stage("Git checkout")
+
+stage('Complie stage')
+{
+steps
+{
+withMaven(maven:'maven_3_6_3'){
+sh 'mvn clean compile'
+} 
+}
+stage('Testing stage')
+{
+steps
+{
+withMaven(maven:'maven_3_6_3')
+sh 'mvn test'
+}
+}
+stage('Deployment Stage')
 {
 steps{
-git credentialsId: '4c53ce92-c08e-40d0-b191-f59137153a87', url: 'https://github.com/ommprasad/demoAppiumtest'
+withMaven(maven:'maven_3_6_3')
+sh 'mvn deploy'
 }
 }
 }
-}
+
+
+
+
+
