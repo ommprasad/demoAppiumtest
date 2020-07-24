@@ -2,7 +2,7 @@ pipeline {
 agent any
 stages{
 
-stage('Complie stage')
+stage('Compile stage')
 {
 steps
 {
