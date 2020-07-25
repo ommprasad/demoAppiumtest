@@ -1,0 +1,10 @@
+node{
+stage('SCM checkout')
+{
+git('https://github.com/ommprasad/demoAppiumtest/new/master')
+}
+stage('email notification')
+{
+mail bcc: '', body: 'this is the email notification body . email notification using jenkins ', cc: '', from: '', replyTo: '', subject: 'email notification', to: 'ommprasad24@gmail.com'
+}
+
