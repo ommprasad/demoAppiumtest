@@ -1,0 +1,12 @@
+properties([gitLabConnection(''), parameters([choice(choices: ['master\nfeature1\nfeature2'], description: 'this is a branch 2 . its have a proper syntax.', name: 'abcd')])])
+
+
+node{
+
+stage('SCM checkout'){
+
+echo "pulling changes from the branch  $(params.abcd)"
+
+git url:'https://github.com/ommprasad/demoAppiumtest/new/master',branch:"${params.branch}"
+}
+}
