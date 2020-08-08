@@ -7,6 +7,6 @@ stage('SCM checkout'){
 
 echo "pulling changes from the branch  ${params.abcd}"
 
-git url:'https://github.com/ommprasad/demoAppiumtest/master/prameterization1',branch:"${params.abcd}"
+git url:'https://github.com/ommprasad/demoAppiumtest/blob/master/prameterization1',branch:"${params.abcd}"
 }
 }
